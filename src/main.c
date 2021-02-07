@@ -497,6 +497,7 @@ main(
    //
    if (SDL_Init(PAL_SDL_INIT_FLAGS) == -1)
    {
+      printf("DBG: %d\n", __LINE__);
 	   TerminateOnError("Could not initialize SDL: %s.\n", SDL_GetError());
    }
    printf("DBG: %d\n", __LINE__);
