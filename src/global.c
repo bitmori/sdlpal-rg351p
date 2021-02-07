@@ -170,8 +170,8 @@ PAL_InitGlobals(
 
 --*/
 {
-   gpGlobals->duk = duk_create_heap_default();
-   PAL_InitESHandlers(gpGlobals->duk);
+   // gpGlobals->duk = duk_create_heap_default();
+   // PAL_InitESHandlers(gpGlobals->duk);
    //
    // Open files
    //
@@ -253,7 +253,7 @@ PAL_FreeGlobals(
    free(gpGlobals->g.lprgBattleField);
    free(gpGlobals->g.lprgLevelUpMagic);
 
-   duk_destroy_heap(gpGlobals->duk);
+   // duk_destroy_heap(gpGlobals->duk);
    //
    // Free the object description data
    //
