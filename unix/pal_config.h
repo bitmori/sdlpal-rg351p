@@ -34,15 +34,15 @@
 #  define PAL_HAS_SDLCD         1
 # endif
 
-# define PAL_PREFIX            "./"
-# define PAL_SAVE_PREFIX       "./"
+# define PAL_PREFIX            "./pal/"
+# define PAL_SAVE_PREFIX       "./pal/"
 
 # define PAL_DEFAULT_WINDOW_WIDTH   640
 # define PAL_DEFAULT_WINDOW_HEIGHT  400
 # define PAL_DEFAULT_FULLSCREEN_HEIGHT 480
 
 # if SDL_VERSION_ATLEAST(2,0,0)
-#  define PAL_VIDEO_INIT_FLAGS  (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | (gConfig.fFullScreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0))
+#  define PAL_VIDEO_INIT_FLAGS  (SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | (gConfig.fFullScreen ? SDL_WINDOW_FULLSCREEN : 0))
 # else
 #  define PAL_VIDEO_INIT_FLAGS  (SDL_HWSURFACE | SDL_RESIZABLE | (gConfig.fFullScreen ? SDL_FULLSCREEN : 0))
 #  define PAL_FATAL_OUTPUT(s)   system(PAL_va(0, "beep; xmessage -center \"FATAL ERROR: %s\"", (s)))
