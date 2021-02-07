@@ -548,7 +548,7 @@ PAL_ScriptSelectionMenu(VOID) {
 
    if (wReturnValue != MENUITEM_VALUE_CANCELLED)
    {
-      // PAL_ExecuteECMAScript(gpGlobals->duk, wReturnValue);
+      PAL_ExecuteECMAScript(gpGlobals->duk, wReturnValue);
    }
 }
 

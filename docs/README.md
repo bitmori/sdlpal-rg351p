@@ -1,8 +1,28 @@
-SDLPAL
+# SDLPAL for RG351P
+
+Tested on ArkOS
+
+how to build (SSH to RG351P):
+```bash
+$ cd unix
+$ make
+```
+
+Required directory structure:
+```
+/opt/
+├── sdlpal/
+│   ├── sdlpal (bin)
+│   └── pal (game data files)
+├── system/
+│   ├── sdlpal.sh
+│   └── ...
+└── ...
+```
+
 ======
-[![Travis CI](https://travis-ci.org/sdlpal/sdlpal.svg?branch=master)](https://travis-ci.org/sdlpal/sdlpal)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/sdlpal/sdlpal?branch=master&svg=true)](https://ci.appveyor.com/project/palxex/sdlpal-itfml)
-[ ![Download](https://api.bintray.com/packages/sdlpal/nightly/master/images/download.svg) ](https://bintray.com/sdlpal/nightly/master/_latestVersion)
+
+# ORIGINAL README:
 
 ***SDLPAL*** is an SDL-based open-source cross-platform reimplementation of the classic Chinese RPG game *Xiān jiàn Qí Xiá Zhuàn (Simplified Chinese: 仙剑奇侠传, Traditional Chinese: 仙劍奇俠傳)* (also known as *Chinese Paladin* or *Legend of Sword and Fairy*, or *PAL* for short).
 

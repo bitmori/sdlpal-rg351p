@@ -22,7 +22,6 @@
 
 #include "main.h"
 #include <setjmp.h>
-// #include <locale.h>
 
 #if defined(PAL_HAS_GIT_REVISION)
 # undef PAL_GIT_REVISION
@@ -469,18 +468,15 @@ main(
 
 --*/
 {
-   // setlocale(LC_ALL, "");
-   printf("DBG: %d\n", __LINE__);
 #if !defined( __EMSCRIPTEN__ ) && !defined(__WINRT__)
    memset(gExecutablePath,0,PAL_MAX_PATH);
    strncpy(gExecutablePath, argv[0], PAL_MAX_PATH);
 #endif
 
-   printf("DBG: %d\n", __LINE__);
 #if PAL_HAS_PLATFORM_STARTUP
    UTIL_Platform_Startup(argc,argv);
 #endif
-   printf("DBG: %d\n", __LINE__);
+
 #if !__EMSCRIPTEN__
    if (setjmp(g_exit_jmp_buf) != 0)
    {
@@ -490,19 +486,18 @@ main(
 	   return g_exit_code;
    }
 #endif
-   printf("DBG: %d\n", __LINE__);
+
 #if !defined(UNIT_TEST) || defined(UNIT_TEST_GAME_INIT)
    //
    // Initialize SDL
    //
    if (SDL_Init(PAL_SDL_INIT_FLAGS) == -1)
    {
-      printf("DBG: %d\n", __LINE__);
 	   TerminateOnError("Could not initialize SDL: %s.\n", SDL_GetError());
    }
-   printf("DBG: %d\n", __LINE__);
+
    PAL_LoadConfig(TRUE);
-   printf("DBG: %d\n", __LINE__);
+
    //
    // Platform-specific initialization
    //
@@ -519,19 +514,19 @@ main(
    //
    if (PAL_HAS_CONFIG_PAGE && gConfig.fLaunchSetting)
 	   return 0;
-   printf("DBG: %d\n", __LINE__);
+
    //
    // If user requests a file-based log, then add it after the system-specific one.
    //
    if (gConfig.pszLogFile)
 	   UTIL_LogAddOutputCallback(UTIL_LogToFile, gConfig.iLogLevel);
-   printf("DBG: %d\n", __LINE__);
+
    //
    // Initialize everything
    //
    PAL_Init();
 #endif
-   printf("DBG: %d\n", __LINE__);
+
 #if !defined(UNIT_TEST)
    //
    // Show the trademark screen and splash screen
