@@ -45,6 +45,19 @@ static SDL_Joystick     *g_pJoy = NULL;
 # define SDL_GetScancodeFromKey(x)   (x)
 #endif
 
+#define RG351BTN_A 0
+#define RG351BTN_B 1
+#define RG351BTN_X 2
+#define RG351BTN_Y 3
+#define RG351BTN_L1 4
+#define RG351BTN_R1 5
+#define RG351BTN_START 6
+#define RG351BTN_SEL 7
+#define RG351BTN_L3 8
+#define RG351BTN_R3 9
+#define RG351BTN_L2 10
+#define RG351BTN_R2 11
+
 BOOL                     g_fUseJoystick = TRUE;
 
 static void _default_init_filter() {}
@@ -618,14 +631,41 @@ PAL_JoystickEventFilter(
       //
       // Pressed the joystick button
       //
-      switch (lpEvent->jbutton.button & 1)
+      switch (lpEvent->jbutton.button)
       {
-      case 0:
+      case RG351BTN_A:
+         g_InputState.dwKeyPress |= kKeySearch;
+         break;
+      case RG351BTN_B:
+      case RG351BTN_START:
          g_InputState.dwKeyPress |= kKeyMenu;
          break;
-
-      case 1:
-         g_InputState.dwKeyPress |= kKeySearch;
+      case RG351BTN_X:
+         g_InputState.dwKeyPress |= kKeyThrowItem;
+         break;
+      case RG351BTN_Y:
+         g_InputState.dwKeyPress |= kKeyUseItem;
+         break;
+      case RG351BTN_SEL:
+         g_InputState.dwKeyPress |= kKeyStatus;
+         break;
+      case RG351BTN_L1:
+         g_InputState.dwKeyPress |= kKeyPgUp;
+         break;
+      case RG351BTN_R1:
+         g_InputState.dwKeyPress |= kKeyPgDn;
+         break;
+      case RG351BTN_L2:
+         g_InputState.dwKeyPress |= kKeyDefend;
+         break;
+      case RG351BTN_R2:
+         g_InputState.dwKeyPress |= kKeyRepeat;
+         break;
+      case RG351BTN_L3:
+         g_InputState.dwKeyPress |= kKeyHome;
+         break;
+      case RG351BTN_R3:
+         g_InputState.dwKeyPress |= kKeyEnd;
          break;
       }
       break;
