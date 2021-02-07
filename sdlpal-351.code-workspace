@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"src/*.d": true,
+		"src/*.o": true,
+		"emscripten": true,
+		"3rd": true,
+		"incomplete_ports": true,
+		"shaders": true,
+		"3ds": true,
+		"android": true,
+		"wii": true,
+		"winrt": true,
+		"*.yml": true
+	},
+	"files.associations": {
+		"algorithm": "c",
+		"chrono": "c",
+		"limits": "c",
+		"global.h": "c"
+	}
+}
+}
