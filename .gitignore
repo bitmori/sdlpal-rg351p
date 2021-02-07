@@ -286,3 +286,5 @@ emscripten/*.cpp
 src/wren/optional
 
 pal/
+
+pal.zip
