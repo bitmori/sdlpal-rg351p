@@ -1,7 +1,7 @@
 /* -*- mode: c; tab-width: 4; c-basic-offset: 4; c-file-style: "linux" -*- */
 //
 // Copyright (c) 2009-2011, Wei Mingzhi <whistler_wmz@users.sf.net>.
-// Copyright (c) 2011-2020, SDLPAL development team.
+// Copyright (c) 2011-2018, SDLPAL development team.
 // All rights reserved.
 //
 // This file is part of SDLPAL.
@@ -34,13 +34,8 @@
 #  define PAL_HAS_SDLCD         1
 # endif
 
-# define PAL_PREFIX            "../pal/"
-# define PAL_SAVE_PREFIX       "../pal/"
-
-# if APPIMAGE
-#  undef PAL_PREFIX
-#  define PAL_PREFIX            PAL_va(PAL_MAX_GLOBAL_BUFFERS-1,"%s%s", SDL_getenv("HOME"),"/.config")
-# endif
+# define PAL_PREFIX            "./"
+# define PAL_SAVE_PREFIX       "./"
 
 # define PAL_DEFAULT_WINDOW_WIDTH   640
 # define PAL_DEFAULT_WINDOW_HEIGHT  400
@@ -60,16 +55,10 @@
 # define PAL_PORTYEAR         NULL
 
 # define PAL_HAS_CONFIG_PAGE  0
-# define PAL_HAS_NATIVEMIDI 0
+# define PAL_HAS_NATIVEMIDI 1
 
 #include <sys/time.h>
 
-#if SDL_VERSION_ATLEAST(2,0,0)
-# define PAL_HAS_GLSL 1
-#endif
+#define PAL_HAS_GLSL 1
 
-# define PAL_HAS_MP3           0
-# define PAL_HAS_OGG           0
-# define PAL_HAS_OPUS          0
-# define PAL_HAS_TOUCH         0
 #endif
